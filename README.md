@@ -1,2 +1,7 @@
-# gerenciamento-de-pedidos
-Uma pequena aplicação web para cadastrar e gerenciar pedidos de uma loja.
+# Order Management System
+
+A JavaScript study project focused on building a simple order management system.
+
+## Status
+
+In development.

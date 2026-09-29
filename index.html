@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Pedidos</title>
+</head>
+
+<body>
+    <header>
+        <h1>Gerenciamento de Pedidos</h1>
+        <nav>
+            <p>Cadastrar | Pedidos</p>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="register-order">
+
+            <form action="#" id="register" method="get">
+                <p class="order-number"><strong>Pedido:</strong> #0000</p>
+                <label for="inp-name">Nome do Cliente:</label>
+                <input type="text" name="inp-name" id="inp-name"> <br>
+
+                <label for="inp-product">Produto</label>
+                <input type="text" name="inp-product" id="inp-product"> <br>
+
+                <label for="inp-category">Categoria:</label>
+                <input type="text" name="inp-category" id="inp-category"> <br>
+
+                <label for="inp-qnt">Quantidade:</label>
+                <input type="number" name="inp-qnt" id="inp-qnt"> <br>
+
+                <label for="inp-price">Preço Unitário:</label>
+                <input type="text" name="inp-price" id="inp-price"> <br>
+
+                <label for="inp-status">Status:</label>
+                <select name="inp-status" id="inp-status">
+                    <option value="Pendente">Pendente</option>
+                    <option value="Pago">Pago</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select> <br>
+
+                <button class="btn-register">Cadastrar</button>
+
+            </form>
+        </section>
+
+        <section class="orders-list">
+            <h2>Todos os pedidos</h2>
+        </section>
+    </main>
+
+    <script src="src/scripts/javascript/script.js"></script>
+</body>
+
+</html>
