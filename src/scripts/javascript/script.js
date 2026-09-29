@@ -8,7 +8,7 @@ const date = document.querySelector('#inp-date');
 const orderNumber = document.querySelector('.order-number');
 const orderList = document.querySelector('.orders-list')
 
-let ordersID = 0;
+let ordersID = 1;
 let ordersData = [];
 
 const btnRegister = document.querySelector('.btn-register').addEventListener('click', function (e) {

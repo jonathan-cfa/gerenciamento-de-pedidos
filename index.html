@@ -5,21 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Pedidos</title>
+    <link rel="stylesheet" href="src/styles/global.css">
 </head>
 
 <body>
     <header>
         <h1>Gerenciamento de Pedidos</h1>
-        <nav>
-            <p>Cadastrar | Pedidos</p>
+        <nav class="nav-menu">
+            <button class="btn-new-register">Novo Cadastro</button> <button class="btn-orders">Pedidos</button>
+            <input type="text" name="seach" id="inp-seach"> <button class="btn-seach">Procurar</button>
         </nav>
     </header>
+    <nav class="nav-filter">
+        <button class="btn-all">Todos</button> <button class="btn-pending">Pendentes</button>
+        <button class="btn-paid">Pagos</button> <button class="btn-sent">Enviados</button>
+        <button class="btn-canceled">Cancelados</button>
+
+    </nav>
 
     <main class="container">
+        <section class="resume">
+            <h2>Estatísticas </h2>
+            <p>Total de Pedidos: 0</p>
+            <p>Pedidos Pagos: 0</p>
+            <p>Pedidos Enviados: 0</p>
+            <p>Pedidos Cancelados: 0</p>
+            <hr>
+            <h3>Financeiro</h3>
+            <p>Valor total em pedidos: R$00,00</p>
+            <p>Valor total Recebido: R$0,00</p>
+            <p>Valor total Cancelados: R$00,00</p>
+        </section>
+
         <section class="register-order">
 
             <form action="#" id="register" method="get">
-                <p class="order-number"><strong>Pedido:</strong> #0000</p>
+                <p class="order-number"><strong>Pedido:</strong> #0001</p>
                 <label for="inp-name">Nome do Cliente:</label>
                 <input type="text" name="inp-name" id="inp-name"> <br>
 
@@ -51,6 +72,9 @@
         <section class="orders-list">
             <h2>Todos os pedidos</h2>
         </section>
+        <footer>
+            <p>Desenvolvido por Jonathan C.</p>
+        </footer>
     </main>
 
     <script src="src/scripts/javascript/script.js"></script>
