@@ -7,6 +7,7 @@ const status = document.querySelector('#inp-status');
 const date = document.querySelector('#inp-date');
 const orderNumber = document.querySelector('.order-number');
 const orderList = document.querySelector('.orders-list')
+const msg = document.querySelector('.msg');
 
 let ordersID = 1;
 let ordersData = [];
@@ -16,8 +17,9 @@ const btnRegister = document.querySelector('.btn-register').addEventListener('cl
     if (verification()) return;
     registerObject();
     displayOrders();
-    clearForm()
-    console.log('Enviado');
+    clearForm();
+    totalOrders();
+    msgStatus('msg-sucess', 'Pedido registrado com sucesso!');
 });
 
 function registerObject() {
@@ -29,21 +31,30 @@ function registerObject() {
         quantity: quantity.value,
         price: priceUnit.value,
         status: status.value,
+        total: calculationOrder(),
         date: getDate()
     });
 
     ordersID++
     ruleID();
 }
+function msgStatus(status, msgs) {
+    msg.setAttribute('class', status);
+    msg.innerText = msgs
+    setInterval(() => {
+        msg.classList.remove(status)
+        msg.innerText = ''
+    }, 5000)
+}
 
 function verification() {
     if (!clientName.value || !product.value || !category.value || !quantity.value || !priceUnit.value) {
-        console.log('preencha todos os campos')
+        msgStatus('msg-fail', 'Preencha todos os campos!');
         return true;
     }
 
     if (Number.isNaN(Number(priceUnit.value)) || Number.isNaN(Number(quantity.value))) {
-        console.log('Não é numero!');
+        msgStatus('msg-fail', 'Não é um número válido!');
         return true
     }
 }
@@ -92,12 +103,13 @@ function displayOrders() {
         <strong>Produto:</strong> ${ordersData[i].product} 
         <strong>Categoria:</strong> ${ordersData[i].categ}
         <strong>Quantidade:</strong> ${ordersData[i].quantity}
-        <strong>Preço Unit:</strong> ${ordersData[i].price}
+        <strong>Preço Unit:</strong> ${Number(ordersData[i].price).toFixed(2).replace('.', ',')}
         <strong>Status</strong>: ${ordersData[i].status}
+        <strong>Total do Pedido R$</strong> ${Number(ordersData[i].total).toFixed(2).replace('.', ',')}
         <strong>Data:</strong> ${ordersData[i].date}
         `;
-        
-        list.setAttribute('class','list');
+
+        list.setAttribute('class', 'list');
         orderList.appendChild(list);
     }
 
@@ -107,3 +119,27 @@ function createElements() {
     const paragraph = document.createElement('p');
     return paragraph;
 }
+
+const calculationOrder = () => priceUnit.value * quantity.value
+
+function totalOrders() {
+    const tOrders = document.querySelector('.total-orders');
+    let subOrders = ordersID - 1;
+
+        tOrders.innerHTML = `
+    Total de pedidos:${subOrders} <br>
+    Valor total dos Pedidos R$${sumOrders()}
+    `
+}
+
+function sumOrders() {
+    let sum = 0;
+    for (let i = 0; i < ordersData.length; i++) {
+        sum += ordersData[i].total;
+    }
+    return sum;
+}
+
+
+totalOrders();
+

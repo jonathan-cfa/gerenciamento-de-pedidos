@@ -6,13 +6,12 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
 body{
     background-color: #b2b6c9;
-    height: 100vh;
-    font-family: "Open Sans", sans-serif;
-    
+    height: 100vh;  
 }
 
 main{
@@ -27,7 +26,7 @@ header h1{
     text-align: center;
     background-color: #ffffff;
     padding-bottom: 10px;
-    border-radius: 0px,0px, 5px, 5px;
+    border-radius: 0px,0px, 15px, 15px;
 }
 
 section{
@@ -67,11 +66,44 @@ form input,select{
     font-weight: bolder;
 }
 
+.btn-register:hover{
+    background-color: rgb(96, 128, 128);
+    color: #ffffff;
+}
+button:hover{
+    background-color: rgb(96, 128, 128);
+    color: #ffffff;
+}
+
 button{
     padding: 2px;
     border-radius: 4px;
     border-style: none;
     font-weight: bold;
+}
+
+.msg{
+    text-align: center;
+}
+
+.msg-sucess{
+    text-align: center;
+    align-self: center;
+    width: 80%;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgb(117, 241, 117);
+    font-weight: bolder;
+}
+
+.msg-fail{
+    text-align: center;
+    align-self: center;
+    width: 80%;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgb(241, 117, 117);
+    font-weight: bolder;
 }
 
 
