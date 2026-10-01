@@ -70,6 +70,12 @@ form input,select{
     background-color: rgb(96, 128, 128);
     color: #ffffff;
 }
+
+.btn-selected{
+    background-color: rgb(96, 128, 128);
+    color: #ffffff;
+}
+
 button:hover{
     background-color: rgb(96, 128, 128);
     color: #ffffff;

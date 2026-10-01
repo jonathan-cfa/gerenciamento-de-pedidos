@@ -19,11 +19,14 @@
         </nav>
     </header>
     <nav class="nav-filter">
-        <button class="btn-all">Todos</button>
-        <button class="btn-pending">Pendentes</button>
-        <button class="btn-paid">Pagos</button>
-        <button class="btn-sent">Enviados</button>
-        <button class="btn-canceled">Cancelados</button>
+        <label for="filter">Filtrar:</label>
+        <select name="filter" id="filter">
+            <option value="all" selected>Todos</option>
+            <option value="pending">Pendente</option>
+            <option value="paid">Pago</option>
+            <option value="sent">Enviado</option>
+            <option value="canceled">Cancelado</option>
+        </select>
     </nav>
 
     <main class="container">

@@ -9,8 +9,11 @@ const orderNumber = document.querySelector('.order-number');
 const orderList = document.querySelector('.orders-list')
 const msg = document.querySelector('.msg');
 
+const filter = document.querySelector('#filter');
+
 let ordersID = 1;
 let ordersData = [];
+
 
 const btnRegister = document.querySelector('.btn-register').addEventListener('click', function (e) {
     e.preventDefault();
@@ -44,7 +47,7 @@ function msgStatus(status, msgs) {
     setInterval(() => {
         msg.classList.remove(status)
         msg.innerText = ''
-    }, 5000)
+    }, 3000)
 }
 
 function verification() {
@@ -126,11 +129,11 @@ function totalOrders() {
     const tOrders = document.querySelector('.total-orders');
     let subOrders = ordersID - 1;
 
-        tOrders.innerHTML = `
+    tOrders.innerHTML = `
     Total de pedidos:${subOrders} <br>
     Valor total dos Pedidos R$${sumOrders()}
     `
-}
+} totalOrders();
 
 function sumOrders() {
     let sum = 0;
@@ -140,6 +143,17 @@ function sumOrders() {
     return sum;
 }
 
+filter.addEventListener('click', function () {
+    let filterData = [];
+    for (let i = 0; i < ordersData.length; i++) {
+        if (filter.value === 'pending' && ordersData[i].status === 'Pendente') {
+            filterData.push(ordersData[i]);
+        }
+    }
+});
 
-totalOrders();
+
+
+
+
 
