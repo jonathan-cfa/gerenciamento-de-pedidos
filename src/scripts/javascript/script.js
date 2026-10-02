@@ -153,7 +153,3 @@ filter.addEventListener('click', function () {
 });
 
 
-
-
-
-
