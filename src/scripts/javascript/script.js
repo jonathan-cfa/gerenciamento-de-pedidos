@@ -143,13 +143,4 @@ function sumOrders() {
     return sum;
 }
 
-filter.addEventListener('click', function () {
-    let filterData = [];
-    for (let i = 0; i < ordersData.length; i++) {
-        if (filter.value === 'pending' && ordersData[i].status === 'Pendente') {
-            filterData.push(ordersData[i]);
-        }
-    }
-});
-
 
