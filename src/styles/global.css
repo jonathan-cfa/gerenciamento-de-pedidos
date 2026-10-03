@@ -112,6 +112,10 @@ button{
     font-weight: bolder;
 }
 
+.filter-area{
+    display: none;
+}
+
 
 footer{
     padding: 10px;

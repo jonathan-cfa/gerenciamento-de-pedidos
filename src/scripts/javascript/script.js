@@ -10,6 +10,7 @@ const orderList = document.querySelector('.orders-list')
 const msg = document.querySelector('.msg');
 
 const filter = document.querySelector('#filter');
+const filterArea = document.querySelector('.filter-area')
 
 let ordersID = 1;
 let ordersData = [];
@@ -144,3 +145,41 @@ function sumOrders() {
 }
 
 
+filter.addEventListener('change', (e) => {
+    if (filter.value === 'all') {
+        orderList.style.display = 'block';
+        filterArea.style.display = 'none';
+    }
+
+    if (filter.value === 'pending') {
+        filterArea.style.display = 'block'
+        orderList.style.display = 'none';
+        const filterList = createElements();
+
+        for (let i = 0; i < ordersData.length; i++) {
+            if (ordersData[i].status === 'Pendente') {
+                msgStatusAndFilter(filterArea,i);
+            }
+            filterList.setAttribute('class', 'filter-list');
+            filterArea.appendChild(filterList);
+        }
+    }
+
+    if (filter.value === 'paid') console.log('Option paid selected');
+    if (filter.value === 'sent') console.log('Option sent selected');
+    if (filter.value === 'canceled') console.log('Option canceled selected');
+});
+
+function msgStatusAndFilter(area,i){
+    area.innerHTML += `
+                    <strong>ID:</strong> ${ordersData[i].id}
+                    <strong>Nome do Cliente:</strong> ${ordersData[i].name} 
+                    <strong>Produto:</strong> ${ordersData[i].product} 
+                    <strong>Categoria:</strong> ${ordersData[i].categ}
+                    <strong>Quantidade:</strong> ${ordersData[i].quantity}
+                    <strong>Preço Unit:</strong> ${Number(ordersData[i].price).toFixed(2).replace('.', ',')}
+                    <strong>Status</strong>: ${ordersData[i].status}
+                    <strong>Total do Pedido R$</strong> ${Number(ordersData[i].total).toFixed(2).replace('.', ',')}
+                    <strong>Data:</strong> ${ordersData[i].date}
+                `;
+}

@@ -14,18 +14,18 @@
         <nav class="nav-menu">
             <button class="btn-new-register">Novo Cadastro</button>
             <button class="btn-orders">Pedidos</button>
-            <input type="text" name="seach" id="inp-seach" placeholder=" Procurar pedido"> 
+            <input type="text" name="seach" id="inp-seach" placeholder=" Procurar pedido">
             <button class="btn-seach">Procurar</button>
         </nav>
     </header>
     <nav class="nav-filter">
         <label for="filter">Filtrar:</label>
         <select name="filter" id="filter">
-            <option value="all" selected>Todos</option>
-            <option value="pending">Pendente</option>
-            <option value="paid">Pago</option>
-            <option value="sent">Enviado</option>
-            <option value="canceled">Cancelado</option>
+            <option value="all" class="filter-option">Todos</option>
+            <option value="pending" class="filter-option">Pendente</option>
+            <option value="paid" class="filter-option">Pago</option>
+            <option value="sent" class="filter-option">Enviado</option>
+            <option value="canceled" class="filter-option">Cancelado</option>
         </select>
     </nav>
 
@@ -72,6 +72,11 @@
         <section class="orders-list">
             <h2>Todos os pedidos</h2>
         </section>
+
+        <section class="filter-area">
+            <h2>Pedidos filtrados</h2>
+        </section>
+        
         <footer>
             <p>Desenvolvido por Jonathan C.</p>
         </footer>
