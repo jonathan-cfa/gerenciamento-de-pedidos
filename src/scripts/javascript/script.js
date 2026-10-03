@@ -152,25 +152,38 @@ filter.addEventListener('change', (e) => {
     }
 
     if (filter.value === 'pending') {
+        filterAction('Pendente');
+    }
+
+    if (filter.value === 'paid'){
+        filterAction('Pago');
+    }
+    
+    if (filter.value === 'sent'){
+        filterAction('Enviado');
+    }
+
+    if (filter.value === 'canceled'){
+        filterAction('Cancelado');
+    }
+});
+
+function filterAction(status) {
+    const filterList = createElements();
         filterArea.style.display = 'block'
+        filterArea.innerHTML = ''
         orderList.style.display = 'none';
-        const filterList = createElements();
 
         for (let i = 0; i < ordersData.length; i++) {
-            if (ordersData[i].status === 'Pendente') {
+            if (ordersData[i].status === status) {
                 msgStatusAndFilter(filterArea,i);
             }
             filterList.setAttribute('class', 'filter-list');
             filterArea.appendChild(filterList);
         }
-    }
+}
 
-    if (filter.value === 'paid') console.log('Option paid selected');
-    if (filter.value === 'sent') console.log('Option sent selected');
-    if (filter.value === 'canceled') console.log('Option canceled selected');
-});
-
-function msgStatusAndFilter(area,i){
+function msgStatusAndFilter(area, i) {
     area.innerHTML += `
                     <strong>ID:</strong> ${ordersData[i].id}
                     <strong>Nome do Cliente:</strong> ${ordersData[i].name} 
