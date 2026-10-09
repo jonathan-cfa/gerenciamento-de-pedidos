@@ -88,6 +88,27 @@ button{
     font-weight: bold;
 }
 
+.delete{
+    background-color: rgb(236, 51, 51);
+    color: white;
+    padding: 3px;
+    margin: 4px;
+}
+
+.edit{
+    background-color: rgb(60, 60, 243);
+    color: white;
+    padding:3px;
+    margin: 4px;
+}
+
+.cancel{
+    background-color: yellow;
+    color: rgb(5, 5, 5);
+    padding:3px;
+    margin: 4px;
+}
+
 .msg{
     text-align: center;
 }

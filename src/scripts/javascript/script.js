@@ -110,9 +110,13 @@ function displayOrders() {
         <strong>Preço Unit:</strong> ${Number(ordersData[i].price).toFixed(2).replace('.', ',')}
         <strong>Status</strong>: ${ordersData[i].status}
         <strong>Total do Pedido R$</strong> ${Number(ordersData[i].total).toFixed(2).replace('.', ',')}
-        <strong>Data:</strong> ${ordersData[i].date}
+        <strong>Data:</strong> ${ordersData[i].date} <br>
         `;
-
+        createElementBtnCancel(list);
+        createElementBtnDelete(list);
+        createElementBtnEdit(list);
+        list.innerHTML += `<hr>`
+        
         list.setAttribute('class', 'list');
         orderList.appendChild(list);
     }
@@ -195,4 +199,31 @@ function msgStatusAndFilter(area, i) {
                     <strong>Total do Pedido R$</strong> ${Number(ordersData[i].total).toFixed(2).replace('.', ',')}
                     <strong>Data:</strong> ${ordersData[i].date}
                 `;
+}
+
+function createElementBtnCancel(local){
+    
+    const cancelBtn = document.createElement('button');
+    cancelBtn.innerHTML ='Cancelar';
+    local.appendChild(cancelBtn);
+    cancelBtn.setAttribute('class','cancel')
+
+}
+
+function createElementBtnDelete(local){
+    
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML ='Excluir';
+    local.appendChild(deleteBtn);
+    deleteBtn.setAttribute('class','delete')
+
+}
+
+function createElementBtnEdit(local){
+    
+    const editBtn = document.createElement('button');
+    editBtn.innerHTML ='Editar';
+    local.appendChild(editBtn);
+    editBtn.setAttribute('class','edit')
+
 }
