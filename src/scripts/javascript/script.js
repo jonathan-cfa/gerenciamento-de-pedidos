@@ -224,6 +224,15 @@ function createElementBtnEdit(local){
     const editBtn = document.createElement('button');
     editBtn.innerHTML ='Editar';
     local.appendChild(editBtn);
-    editBtn.setAttribute('class','edit')
+    editBtn.setAttribute('class','edit');
 
 }
+
+document.addEventListener('click', function(e){
+    const element = e.target;
+
+    if(element.classList.contains('cancel')){
+        element.parentElement.style.background = 'rgb(253, 146, 146)';
+        
+    }
+});
