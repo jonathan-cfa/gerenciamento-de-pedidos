@@ -1,16 +1,16 @@
 const clientName = document.querySelector('#inp-name');
 const product = document.querySelector('#inp-product');
 const category = document.querySelector('#inp-category');
-const quantity = document.querySelector('#inp-qnt')
+const quantity = document.querySelector('#inp-qnt');
 const priceUnit = document.querySelector('#inp-price');
 const status = document.querySelector('#inp-status');
 const date = document.querySelector('#inp-date');
 const orderNumber = document.querySelector('.order-number');
-const orderList = document.querySelector('.orders-list')
+const orderList = document.querySelector('.orders-list');
 const msg = document.querySelector('.msg');
 
 const filter = document.querySelector('#filter');
-const filterArea = document.querySelector('.filter-area')
+const filterArea = document.querySelector('.filter-area');
 
 let ordersID = 1;
 let ordersData = [];
@@ -36,7 +36,7 @@ function registerObject() {
         price: priceUnit.value,
         status: status.value,
         total: calculationOrder(),
-        date: getDate()
+        date: getDate(),
     });
 
     ordersID++
@@ -44,11 +44,11 @@ function registerObject() {
 }
 function msgStatus(status, msgs) {
     msg.setAttribute('class', status);
-    msg.innerText = msgs
+    msg.innerText = msgs;
     setInterval(() => {
-        msg.classList.remove(status)
-        msg.innerText = ''
-    }, 3000)
+        msg.classList.remove(status);
+        msg.innerText = '';
+    }, 3000);
 }
 
 function verification() {
@@ -59,7 +59,7 @@ function verification() {
 
     if (Number.isNaN(Number(priceUnit.value)) || Number.isNaN(Number(quantity.value))) {
         msgStatus('msg-fail', 'Não é um número válido!');
-        return true
+        return true;
     }
 }
 
@@ -81,7 +81,7 @@ function getDate() {
     const month = atualDate.getMonth() + 1;
     const year = atualDate.getFullYear();
 
-    return `${leadingZero(day)}/${leadingZero(month)}/${year}`
+    return `${leadingZero(day)}/${leadingZero(month)}/${year}`;
 }
 
 function leadingZero(p) {
@@ -128,7 +128,7 @@ function createElements() {
     return paragraph;
 }
 
-const calculationOrder = () => priceUnit.value * quantity.value
+const calculationOrder = () => priceUnit.value * quantity.value;
 
 function totalOrders() {
     const tOrders = document.querySelector('.total-orders');
@@ -174,8 +174,8 @@ filter.addEventListener('change', (e) => {
 
 function filterAction(status) {
     const filterList = createElements();
-        filterArea.style.display = 'block'
-        filterArea.innerHTML = ''
+        filterArea.style.display = 'block';
+        filterArea.innerHTML = '';
         orderList.style.display = 'none';
 
         for (let i = 0; i < ordersData.length; i++) {
@@ -206,7 +206,7 @@ function createElementBtnCancel(local){
     const cancelBtn = document.createElement('button');
     cancelBtn.innerHTML ='Cancelar';
     local.appendChild(cancelBtn);
-    cancelBtn.setAttribute('class','cancel')
+    cancelBtn.setAttribute('class','cancel');
 
 }
 
@@ -215,7 +215,7 @@ function createElementBtnDelete(local){
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML ='Excluir';
     local.appendChild(deleteBtn);
-    deleteBtn.setAttribute('class','delete')
+    deleteBtn.setAttribute('class','delete');
 
 }
 
@@ -224,6 +224,7 @@ function createElementBtnEdit(local){
     const editBtn = document.createElement('button');
     editBtn.innerHTML ='Editar';
     local.appendChild(editBtn);
-    editBtn.setAttribute('class','edit')
+    editBtn.setAttribute('class','edit');
 
 }
+
