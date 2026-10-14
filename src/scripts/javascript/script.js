@@ -116,7 +116,7 @@ function displayOrders() {
         createElementBtnDelete(list);
         createElementBtnEdit(list);
         list.innerHTML += `<hr>`
-        
+
         list.setAttribute('class', 'list');
         orderList.appendChild(list);
     }
@@ -159,32 +159,32 @@ filter.addEventListener('change', (e) => {
         filterAction('Pendente');
     }
 
-    if (filter.value === 'paid'){
+    if (filter.value === 'paid') {
         filterAction('Pago');
     }
-    
-    if (filter.value === 'sent'){
+
+    if (filter.value === 'sent') {
         filterAction('Enviado');
     }
 
-    if (filter.value === 'canceled'){
+    if (filter.value === 'canceled') {
         filterAction('Cancelado');
     }
 });
 
 function filterAction(status) {
     const filterList = createElements();
-        filterArea.style.display = 'block';
-        filterArea.innerHTML = '';
-        orderList.style.display = 'none';
+    filterArea.style.display = 'block';
+    filterArea.innerHTML = '';
+    orderList.style.display = 'none';
 
-        for (let i = 0; i < ordersData.length; i++) {
-            if (ordersData[i].status === status) {
-                msgStatusAndFilter(filterArea,i);
-            }
-            filterList.setAttribute('class', 'filter-list');
-            filterArea.appendChild(filterList);
+    for (let i = 0; i < ordersData.length; i++) {
+        if (ordersData[i].status === status) {
+            msgStatusAndFilter(filterArea, i);
         }
+        filterList.setAttribute('class', 'filter-list');
+        filterArea.appendChild(filterList);
+    }
 }
 
 function msgStatusAndFilter(area, i) {
@@ -201,30 +201,36 @@ function msgStatusAndFilter(area, i) {
                 `;
 }
 
-function createElementBtnCancel(local){
-    
+function createElementBtnCancel(local) {
+
     const cancelBtn = document.createElement('button');
-    cancelBtn.innerHTML ='Cancelar';
+    cancelBtn.innerHTML = 'Cancelar';
     local.appendChild(cancelBtn);
-    cancelBtn.setAttribute('class','cancel');
-
+    cancelBtn.setAttribute('class', 'cancel');
 }
 
-function createElementBtnDelete(local){
-    
+function createElementBtnDelete(local) {
+
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML ='Excluir';
+    deleteBtn.innerHTML = 'Excluir';
     local.appendChild(deleteBtn);
-    deleteBtn.setAttribute('class','delete');
-
+    deleteBtn.setAttribute('class', 'delete');
 }
 
-function createElementBtnEdit(local){
-    
+function createElementBtnEdit(local) {
+
     const editBtn = document.createElement('button');
-    editBtn.innerHTML ='Editar';
+    editBtn.innerHTML = 'Editar';
     local.appendChild(editBtn);
-    editBtn.setAttribute('class','edit');
-
+    editBtn.setAttribute('class', 'edit');
 }
+
+document.addEventListener('click', function (e) {
+    const element = e.target;
+    const paragarphChild = element.closest('p');
+
+    if (element.classList.contains('cancel')) {
+        paragarphChild.style.backgroundColor = 'rgb(255, 93, 93)';
+    }
+});
 
